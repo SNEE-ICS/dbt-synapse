@@ -117,15 +117,15 @@ declare @drop_remaining_indexes_last nvarchar(max) = (
 
 {%- endmacro %}
 
+-- removed to test if this resolves recursion issue. 
+-- {% macro create_clustered_index(columns, unique=False) -%}
+--   {{ return(create_clustered_index(columns, unique=False)) }}
+-- {%- endmacro %}
 
-{% macro create_clustered_index(columns, unique=False) -%}
-  {{ return(create_clustered_index(columns, unique=False)) }}
-{%- endmacro %}
 
-
-{% macro create_nonclustered_index(columns, includes=False) %}
-  {{ return(create_nonclustered_index(columns, includes=False)) }}
-{% endmacro %}
+-- {% macro create_nonclustered_index(columns, includes=False) %}
+--   {{ return(create_nonclustered_index(columns, includes=False)) }}
+-- {% endmacro %}
 
 
 {% macro drop_fk_indexes_on_table(relation) -%}
